@@ -5,7 +5,7 @@ Created on Mon Aug 17 11:32:55 2015
 @author: uidv7683
 """
 
-from dxlparser import DXLParser
+from dxlparser.atoms.literal import dxlliteral
 
 
 data = [ i for i in 
@@ -46,7 +46,7 @@ expected = [
 
 def process(data, expected):
     print ("Parsing:|"+  data + "|")
-    result_array = DXLParser().literal().parseString(data)
+    result_array = dxlliteral().parseString(data)
     
     assert result_array and len(result_array) == 1
     
