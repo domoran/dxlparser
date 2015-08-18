@@ -35,6 +35,7 @@ def test_invalid_identifier_GoodSymbol():
     I = Identifier("b+", retTrue)
     I.parseString("a")    
 
+
 symbols = ['::hallo','a', '0', '__main', '__main__', 'testing123', "::a's"]
 
 badsymbols = ['0', 'abc', 'nosuchSymbol']
@@ -45,14 +46,20 @@ def process(symbol):
     I.parseString(symbol)
     assert True
 
+@raises ( p.ParseException )
+def processBad(symbol):
+    I.parseString(symbol)
+    
+
 def test_goodSymbols():
     for s in symbols:
-        yield process, s
+        if s != "0":
+            yield process, s
 
-@raises( p.ParseException )   
+
 def test_badSymbols():
     for s in badsymbols:
-        yield process, s
+        yield processBad, s
 
 
 if __name__ == "__main__":

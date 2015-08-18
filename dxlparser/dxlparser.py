@@ -11,9 +11,7 @@ class DXLParser:
     def parseStatement(self, toks ):
         print ("Parsing Statement:", (toks))
 
-    def statement_terminator(self): 
-        # statements may be terminated by ";" by the end of the line or by the end of the data 
-        return p.lineEnd | p.Literal(";") or p.StringEnd()
+
     
     def unknown_statement(self):
         return p.SkipTo(self.statement_terminator())
@@ -24,13 +22,13 @@ class DXLParser:
         ];
         
         statement = p.Group( p.Or(statements) )
-        statement.setWhitespaceChars(" \t")
+        
         
         return statement
 
     
     def __init__(self):        
-        self.grammar = p.ZeroOrMore( self.statement() ); 
+        self.grammar = 
         
     
     def parse(self, data):
