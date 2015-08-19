@@ -28,7 +28,7 @@ class DXLParser:
 
     
     def __init__(self):        
-        self.grammar = 
+        pass
         
     
     def parse(self, data):

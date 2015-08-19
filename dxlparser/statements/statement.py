@@ -7,8 +7,11 @@ Created on Tue Aug 18 09:53:08 2015
 
 import pyparsing as p 
 
+def UnknownStatement():
+    return p.SkipTo(p.LineEnd)
 
-class StatementParser: 
+
+class Statement: 
     def __init__ (self): 
         self.statements = []
     
